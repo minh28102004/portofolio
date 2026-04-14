@@ -1,0 +1,148 @@
+const getProjectImage = (fileName) => `/project-images/${fileName}`;
+
+export const featuredProjects = [
+  {
+    id: "project-getsport",
+    Title: "GetSport",
+    Description:
+      "A sports booking and venue discovery platform built to help users explore activities, compare locations, and move through a modern reservation flow.",
+    Img: getProjectImage("getsport.jpg"),
+    Link: "https://get-sport.vercel.app",
+    Github: "https://github.com/HarryTran-lead/EXE_GetSport_Project",
+    TechStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Ant Design",
+      "Material UI",
+      "Axios",
+      "Leaflet",
+    ],
+    Features: [
+      "Sports venue and activity discovery",
+      "Booking-focused user journey",
+      "Responsive browsing and reservation flow",
+      "Modern UI with reusable components",
+    ],
+  },
+  {
+    id: "project-rex",
+    Title: "Rex",
+    Description:
+      "A branded service website designed to present programs, activities, and user-friendly information in a clear and engaging digital experience.",
+    Img: getProjectImage("rex.jpg"),
+    Link: "https://rexenglish.com",
+    Github: "https://github.com/HarryTran-lead/KidzgoCentre",
+    TechStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Material UI",
+      "Axios",
+    ],
+    Features: [
+      "Program and activity showcase",
+      "Parent-oriented content presentation",
+      "Clean responsive page structure",
+      "Service-focused UI design",
+    ],
+  },
+  {
+    id: "project-blood-donation-platform",
+    Title: "Blood Donation Platform",
+    Description:
+      "A healthcare-oriented web platform built to support donation workflows, campaign visibility, and structured user interactions across a modern interface.",
+    Img: getProjectImage("blood-donation-platform.jpg"),
+    Link: "https://blood-donation-topaz.vercel.app",
+    Github: "https://github.com/minh28102004/SWD392_Blood_Donation_Project",
+    TechStack: [
+      "React",
+      "JavaScript",
+      "Vite",
+      "Redux",
+      "Material UI",
+      "Ant Design",
+      "Axios",
+      "Chart.js",
+    ],
+    Features: [
+      "Donation and campaign management flow",
+      "Dashboard-style data presentation",
+      "Form-heavy scheduling interactions",
+      "Scalable component-based structure",
+    ],
+  },
+  {
+    id: "project-orange-shop",
+    Title: "OrangeShop",
+    Description:
+      "An e-commerce web experience focused on product discovery, browsing, and shopping flows with a clean storefront presentation.",
+    Img: getProjectImage("orange-shop.jpg"),
+    Link: "https://orange-shop-seven.vercel.app/",
+    Github: "https://github.com/HarryTran-lead/OrangeShop",
+    TechStack: [
+      "React",
+      "JavaScript",
+      "Vite",
+      "Tailwind CSS",
+      "Redux",
+      "React Router",
+      "Axios",
+    ],
+    Features: [
+      "Storefront and product browsing experience",
+      "Shopping-focused interface patterns",
+      "Responsive product presentation",
+      "Structured client-side navigation",
+    ],
+  },
+  {
+    id: "project-mln",
+    Title: "MLN",
+    Description:
+      "A branded web platform centered on content presentation, storytelling structure, and a polished browsing experience across modern layouts.",
+    Img: getProjectImage("mln.jpg"),
+    Link: "https://mln-delta.vercel.app/",
+    Github: "https://github.com/HarryTran-lead/MLN",
+    TechStack: [
+      "React",
+      "JavaScript",
+      "Vite",
+      "Tailwind CSS",
+      "Material UI",
+      "Framer Motion",
+    ],
+    Features: [
+      "Content-driven landing and section flows",
+      "Branded visual presentation",
+      "Responsive layout composition",
+      "Smooth interaction and motion details",
+    ],
+  },
+  {
+    id: "project-econet-system",
+    Title: "ECONET System",
+    Description:
+      "A system web application built for structured workflows, operational data handling, and dashboard-style management in a responsive interface.",
+    Img: getProjectImage("econet-system.jpg"),
+    Link: "https://wdp301-fe.vercel.app",
+    Github: "https://github.com/truongduy2804/wdp301_fe",
+    TechStack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "React Router",
+      "Axios",
+      "Material UI",
+    ],
+    Features: [
+      "System-oriented dashboard experience",
+      "Workflow and data management screens",
+      "Responsive admin-style interface",
+      "Structured navigation between modules",
+    ],
+  },
+];
