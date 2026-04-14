@@ -6,7 +6,9 @@ I'm **Luong Nguyen Xuan Minh**, a Software Developer passionate about building m
 
 This project is my personal portfolio website, showcasing my projects, skills, and experience in frontend and backend development.
 
-👉 [(Live Demo](https://portofolio-minzsun.vercel.app/)
+## Live Demo
+
+[Visit Portfolio Website](https://portofolio-minzsun.vercel.app/)
 
 ---
 
