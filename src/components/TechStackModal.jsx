@@ -87,7 +87,6 @@ const TECH_ICONS = {
   Figma: PenTool,
   Vercel: Cloud,
   Render: Cloud,
-  Supabase: Cloud,
   Firebase: Flame,
 };
 

@@ -8,7 +8,7 @@ const primaryTechStack = [
   "Node.js",
   "NestJS",
   "MongoDB",
-  "Supabase",
+  "PostgreSQL",
 ];
 
 const techStackGroups = [
@@ -40,7 +40,7 @@ const techStackGroups = [
   },
   {
     title: "Database & Services",
-    items: ["MongoDB", "PostgreSQL", "SQL Server", "Firebase", "Supabase"],
+    items: ["MongoDB", "PostgreSQL", "SQL Server", "Firebase"],
   },
   {
     title: "Tools & Platforms",

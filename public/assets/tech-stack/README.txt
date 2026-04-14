@@ -36,7 +36,6 @@ Database & Services
 - `postgresql`
 - `sql-server`
 - `firebase`
-- `supabase`
 
 Tools & Platforms
 - `git`

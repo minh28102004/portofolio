@@ -18,6 +18,7 @@ import {
 import Swal from "sweetalert2";
 import { toSlug } from "../utils/slug";
 import { profile, getAbsoluteUrl } from "../data/profile";
+import { featuredProjects } from "../data/featuredProjects";
 
 const TECH_ICONS = {
   React: Globe,
@@ -112,8 +113,7 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const storedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-    const selectedProject = storedProjects.find((p) => toSlug(p.Title) === slug);
+    const selectedProject = featuredProjects.find((p) => toSlug(p.Title) === slug);
 
     if (selectedProject) {
       setProject({

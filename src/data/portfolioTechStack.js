@@ -23,7 +23,6 @@ const TECH_STACK_FILE_NAMES = {
   PostgreSQL: "postgresql",
   "SQL Server": "sql-server",
   Firebase: "firebase",
-  Supabase: "supabase",
   Git: "git",
   GitHub: "github",
   Axios: "axios",

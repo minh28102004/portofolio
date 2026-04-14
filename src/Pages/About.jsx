@@ -11,6 +11,8 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { profile } from "../data/profile";
+import { featuredProjects } from "../data/featuredProjects";
+import { featuredCertificates } from "../data/featuredCertificates";
 
 const Header = memo(() => (
   <div className="mb-2 text-center lg:mb-8">
@@ -206,14 +208,9 @@ const ActionLink = memo(
 
 const AboutPage = () => {
   const { totalProjects, totalCertificates } = useMemo(() => {
-    const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
-    const storedCertificates = JSON.parse(
-      localStorage.getItem("certificates") || "[]",
-    );
-
     return {
-      totalProjects: storedProjects.length,
-      totalCertificates: storedCertificates.length,
+      totalProjects: featuredProjects.length,
+      totalCertificates: featuredCertificates.length,
     };
   }, []);
 

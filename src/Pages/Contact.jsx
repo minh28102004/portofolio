@@ -1,12 +1,39 @@
 import { useState, useEffect } from "react";
-import { Share2, User, Mail, MessageSquare, Send } from "lucide-react";
+import {
+  Share2,
+  User,
+  Mail,
+  MessageSquare,
+  Send,
+  BriefcaseBusiness,
+  ArrowUpRight,
+  Clock3,
+} from "lucide-react";
 import SocialLinks from "../components/SocialLinks";
-import Komentar from "../components/Commentar";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import { profile } from "../data/profile";
+
+const contactHighlights = [
+  {
+    icon: Mail,
+    label: "Direct Email",
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+  },
+  {
+    icon: BriefcaseBusiness,
+    label: "Open To",
+    value: "Fullstack roles and freelance projects",
+  },
+  {
+    icon: Clock3,
+    label: "Response Style",
+    value: "Usually within 24 hours",
+  },
+];
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -224,7 +251,66 @@ const ContactPage = () => {
           </div>
 
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-3 py-3 md:p-10 md:py-8 shadow-2xl transform transition-all duration-500 hover:shadow-[#6366f1]/10">
-            <Komentar />
+            <div className="h-full rounded-2xl bg-gradient-to-br from-white/10 to-white/5 p-6 md:p-8">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.32em] text-white/35">
+                    Let&apos;s Connect
+                  </p>
+                  <h3 className="mt-3 text-2xl font-semibold text-white">
+                    Portfolio contact, without admin backend
+                  </h3>
+                  <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300">
+                    This portfolio now runs as a clean static experience. If
+                    you want to work together, the fastest path is email or
+                    social contact.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-violet-300">
+                  <ArrowUpRight className="h-6 w-6" />
+                </div>
+              </div>
+
+              <div className="mt-8 space-y-4">
+                {contactHighlights.map(({ icon: Icon, label, value, href }) => {
+                  const content = (
+                    <div className="group flex items-start gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:border-violet-400/30 hover:bg-white/10">
+                      <div className="rounded-2xl bg-violet-500/10 p-3 text-violet-300">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="text-xs uppercase tracking-[0.24em] text-white/35">
+                          {label}
+                        </p>
+                        <p className="mt-2 break-words text-sm font-medium text-white sm:text-base">
+                          {value}
+                        </p>
+                      </div>
+                    </div>
+                  );
+
+                  if (!href) {
+                    return <div key={label}>{content}</div>;
+                  }
+
+                  return (
+                    <a key={label} href={href}>
+                      {content}
+                    </a>
+                  );
+                })}
+              </div>
+
+              <div className="mt-8 rounded-2xl border border-dashed border-violet-400/25 bg-violet-500/5 p-5">
+                <p className="text-sm leading-7 text-slate-300">
+                  Social links are still available below, so you can keep the
+                  portfolio simple while staying easy to reach.
+                </p>
+                <div className="mt-5 flex justify-center border-t border-white/10 pt-5">
+                  <SocialLinks />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

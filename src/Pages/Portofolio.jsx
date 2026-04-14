@@ -1,5 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
-import { supabase } from "../supabase";
+import { useState, useEffect, useCallback } from "react";
 
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
@@ -14,6 +13,7 @@ import "aos/dist/aos.css";
 import Certificate from "../components/Certificate";
 import { Code, Award, Boxes } from "lucide-react";
 import { featuredProjects } from "../data/featuredProjects";
+import { featuredCertificates } from "../data/featuredCertificates";
 import { portfolioTechStackItems } from "../data/portfolioTechStack";
 
 const ToggleButton = ({ onClick, isShowingMore }) => (
@@ -103,8 +103,6 @@ function a11yProps(index) {
 
 export default function FullWidthTabs() {
   const [value, setValue] = useState(0);
-  const [projects, setProjects] = useState([]);
-  const [certificates, setCertificates] = useState([]);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const isMobile = window.innerWidth < 768;
   const initialItems = isMobile ? 4 : 6;
@@ -114,53 +112,6 @@ export default function FullWidthTabs() {
       once: false,
     });
   }, []);
-
-  const fetchData = useCallback(async () => {
-    try {
-      const [projectsResponse, certificatesResponse] = await Promise.all([
-        supabase.from("projects").select("*").order("id", { ascending: false }),
-        supabase
-          .from("certificates")
-          .select("*")
-          .order("id", { ascending: false }),
-      ]);
-
-      const projectData =
-        !projectsResponse.error &&
-        Array.isArray(projectsResponse.data) &&
-        projectsResponse.data.length > 0
-          ? projectsResponse.data
-          : featuredProjects;
-      const certificateData =
-        !certificatesResponse.error && Array.isArray(certificatesResponse.data)
-          ? certificatesResponse.data
-          : [];
-
-      setProjects(projectData);
-      setCertificates(certificateData);
-      localStorage.setItem("projects", JSON.stringify(projectData));
-      localStorage.setItem("certificates", JSON.stringify(certificateData));
-    } catch (error) {
-      console.error("Error fetching data from Supabase:", error.message);
-      setProjects(featuredProjects);
-      localStorage.setItem("projects", JSON.stringify(featuredProjects));
-    }
-  }, []);
-
-  useEffect(() => {
-    const cachedProjects = localStorage.getItem("projects");
-    const cachedCertificates = localStorage.getItem("certificates");
-
-    if (cachedProjects) {
-      setProjects(JSON.parse(cachedProjects));
-    }
-
-    if (cachedCertificates) {
-      setCertificates(JSON.parse(cachedCertificates));
-    }
-
-    fetchData();
-  }, [fetchData]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -172,10 +123,10 @@ export default function FullWidthTabs() {
     }
   }, []);
 
-  const displayedProjects = projects;
+  const displayedProjects = featuredProjects;
   const displayedCertificates = showAllCertificates
-    ? certificates
-    : certificates.slice(0, initialItems);
+    ? featuredCertificates
+    : featuredCertificates.slice(0, initialItems);
 
   return (
     <div
@@ -337,32 +288,46 @@ export default function FullWidthTabs() {
           </TabPanel>
 
           <TabPanel value={value} index={1}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
-                {displayedCertificates.map((certificate, index) => (
-                  <div
-                    key={certificate.id || index}
-                    data-aos={
-                      index % 3 === 0
-                        ? "fade-up-right"
-                        : index % 3 === 1
-                          ? "fade-up"
-                          : "fade-up-left"
-                    }
-                    data-aos-duration={
-                      index % 3 === 0
-                        ? "1000"
-                        : index % 3 === 1
-                          ? "1200"
-                          : "1000"
-                    }
-                  >
-                    <Certificate ImgSertif={certificate.Img} />
-                  </div>
-                ))}
+            {displayedCertificates.length > 0 ? (
+              <div className="container mx-auto flex justify-center items-center overflow-hidden">
+                <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
+                  {displayedCertificates.map((certificate, index) => (
+                    <div
+                      key={certificate.id || index}
+                      data-aos={
+                        index % 3 === 0
+                          ? "fade-up-right"
+                          : index % 3 === 1
+                            ? "fade-up"
+                            : "fade-up-left"
+                      }
+                      data-aos-duration={
+                        index % 3 === 0
+                          ? "1000"
+                          : index % 3 === 1
+                            ? "1200"
+                            : "1000"
+                      }
+                    >
+                      <Certificate ImgSertif={certificate.Img} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-            {certificates.length > initialItems && (
+            ) : (
+              <div className="container mx-auto">
+                <div className="rounded-3xl border border-white/10 bg-white/5 px-6 py-12 text-center text-slate-300 backdrop-blur-xl">
+                  <p className="text-lg font-medium text-white">
+                    Certificates will be added here soon.
+                  </p>
+                  <p className="mt-2 text-sm text-slate-400">
+                    The portfolio is now using local data only, without admin
+                    dashboard or database sync.
+                  </p>
+                </div>
+              </div>
+            )}
+            {featuredCertificates.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
                 <ToggleButton
                   onClick={() => toggleShowMore("certificates")}
