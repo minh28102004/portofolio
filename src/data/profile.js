@@ -76,7 +76,7 @@ export const profile = {
   aboutBio: `I am ${fullName}, a software developer who enjoys turning ideas into polished, scalable, and user-focused digital products from frontend experience to backend logic.`,
   quote:
     "Keep learning, keep improving, and always design with the user in mind.",
-  email: "luongxuanminh101@gmail.com",
+  email: "luongxuanminh102@gmail.com",
   aboutAvatar: "/assets/profile/about-avatar.jpg",
   primaryTechStack,
   techStackGroups,
