@@ -24,6 +24,8 @@ const techStackGroups = [
       "Tailwind CSS",
       "Bootstrap",
       "Material UI",
+      "Ant Design",
+      "shadcn/ui",
       "Redux",
       "React Native",
       "Flutter",
@@ -35,7 +37,6 @@ const techStackGroups = [
       "Node.js",
       "Express.js",
       "NestJS",
-      "REST API",
     ],
   },
   {

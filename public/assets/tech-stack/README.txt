@@ -21,15 +21,16 @@ Frontend
 - `tailwind-css`
 - `bootstrap`
 - `material-ui`
+- `ant-design`
+- `shadcn-ui`
 - `redux`
 - `react-native`
 - `flutter`
 
 Backend
 - `nodejs`
-- `expressjs`
+- `express`
 - `nestjs`
-- `rest-api`
 
 Database & Services
 - `mongodb`
