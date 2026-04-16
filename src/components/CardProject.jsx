@@ -3,8 +3,34 @@ import { Link } from "react-router-dom";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { toSlug } from "../utils/slug";
 
-const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
+const TECH_BADGE_PRIORITY = {
+  "Next.js": 1,
+  Leaflet: 1,
+  "Chart.js": 1,
+  "Framer Motion": 1,
+  "React Router": 2,
+  Redux: 2,
+  "Material UI": 3,
+  "Ant Design": 3,
+  "Tailwind CSS": 4,
+  Axios: 4,
+};
+
+const CardProject = ({
+  Img,
+  Title,
+  Description,
+  Link: ProjectLink,
+  id,
+  TechStack = [],
+}) => {
   const [hasImageError, setHasImageError] = useState(false);
+  const previewTechStack = [...TechStack]
+    .sort(
+      (left, right) =>
+        (TECH_BADGE_PRIORITY[left] ?? 5) - (TECH_BADGE_PRIORITY[right] ?? 5),
+    )
+    .slice(0, 4);
 
   useEffect(() => {
     setHasImageError(false);
@@ -60,6 +86,24 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
             <p className="text-gray-300/80 text-sm leading-relaxed line-clamp-2">
               {Description}
             </p>
+
+            {previewTechStack.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {previewTechStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded-full border border-blue-400/20 bg-blue-500/10 px-2.5 py-1 text-[11px] font-medium text-blue-200/90"
+                  >
+                    {tech}
+                  </span>
+                ))}
+                {TechStack.length > previewTechStack.length && (
+                  <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">
+                    +{TechStack.length - previewTechStack.length}
+                  </span>
+                )}
+              </div>
+            )}
 
             <div className="pt-4 flex items-center justify-between">
               {ProjectLink ? (

@@ -278,6 +278,7 @@ export default function FullWidthTabs() {
                       Img={project.Img}
                       Title={project.Title}
                       Description={project.Description}
+                      TechStack={project.TechStack}
                       Link={project.Link}
                       id={project.id}
                     />
@@ -318,11 +319,10 @@ export default function FullWidthTabs() {
               <div className="container mx-auto">
                 <div className="rounded-3xl border border-white/10 bg-white/5 px-6 py-12 text-center text-slate-300 backdrop-blur-xl">
                   <p className="text-lg font-medium text-white">
-                    Certificates will be added here soon.
+                    Certificates will be updated soon.
                   </p>
                   <p className="mt-2 text-sm text-slate-400">
-                    The portfolio is now using local data only, without admin
-                    dashboard or database sync.
+                    I am currently organizing and uploading the latest certificates for this section.
                   </p>
                 </div>
               </div>
