@@ -100,7 +100,8 @@ const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 const WORDS = profile.heroKeywords;
 const PRIMARY_TECH_STACK = profile.primaryTechStack;
-const TECH_STACK_GROUPS = profile.techStackGroups;
+const TECH_STACK_GROUPS =
+  profile.homeTechStackGroups || profile.techStackGroups;
 
 const Home = () => {
   const [text, setText] = useState("");

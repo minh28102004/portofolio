@@ -7,6 +7,7 @@ import {
   Atom,
   Wind,
   Workflow,
+  Smartphone,
   Server,
   Braces,
   Boxes,
@@ -18,14 +19,20 @@ import {
   Cloud,
   Flame,
   Wrench,
+  Bug,
 } from "lucide-react";
 
 const SECTION_ICONS = {
   Frontend: Code2,
+  Mobile: Smartphone,
   Backend: Server,
+  "Backend & API": Server,
   Database: Database,
   "Database & Services": Database,
+  "Cloud & Services": Cloud,
   "Tools & Platforms": Wrench,
+  "Tools & Workflow": Wrench,
+  "Testing & QA": Bug,
 };
 
 const SECTION_STYLES = {
@@ -35,7 +42,19 @@ const SECTION_STYLES = {
       "border-cyan-400/20 bg-cyan-500/10 text-cyan-100 hover:border-cyan-300/40 hover:bg-cyan-500/15",
     icon: "text-cyan-300",
   },
+  Mobile: {
+    header: "text-sky-100",
+    badge:
+      "border-sky-400/20 bg-sky-500/10 text-sky-100 hover:border-sky-300/40 hover:bg-sky-500/15",
+    icon: "text-sky-300",
+  },
   Backend: {
+    header: "text-emerald-200",
+    badge:
+      "border-emerald-400/20 bg-emerald-500/10 text-emerald-100 hover:border-emerald-300/40 hover:bg-emerald-500/15",
+    icon: "text-emerald-300",
+  },
+  "Backend & API": {
     header: "text-emerald-200",
     badge:
       "border-emerald-400/20 bg-emerald-500/10 text-emerald-100 hover:border-emerald-300/40 hover:bg-emerald-500/15",
@@ -53,11 +72,29 @@ const SECTION_STYLES = {
       "border-amber-400/20 bg-amber-500/10 text-amber-50 hover:border-amber-300/40 hover:bg-amber-500/15",
     icon: "text-amber-300",
   },
+  "Cloud & Services": {
+    header: "text-indigo-100",
+    badge:
+      "border-indigo-400/20 bg-indigo-500/10 text-indigo-50 hover:border-indigo-300/40 hover:bg-indigo-500/15",
+    icon: "text-indigo-300",
+  },
   "Tools & Platforms": {
     header: "text-fuchsia-100",
     badge:
       "border-fuchsia-400/20 bg-fuchsia-500/10 text-fuchsia-50 hover:border-fuchsia-300/40 hover:bg-fuchsia-500/15",
     icon: "text-fuchsia-300",
+  },
+  "Tools & Workflow": {
+    header: "text-fuchsia-100",
+    badge:
+      "border-fuchsia-400/20 bg-fuchsia-500/10 text-fuchsia-50 hover:border-fuchsia-300/40 hover:bg-fuchsia-500/15",
+    icon: "text-fuchsia-300",
+  },
+  "Testing & QA": {
+    header: "text-rose-100",
+    badge:
+      "border-rose-400/20 bg-rose-500/10 text-rose-50 hover:border-rose-300/40 hover:bg-rose-500/15",
+    icon: "text-rose-300",
   },
 };
 
@@ -74,13 +111,17 @@ const TECH_ICONS = {
   "Ant Design": Layout,
   "shadcn/ui": Sparkles,
   Redux: Workflow,
-  "React Native": Atom,
-  Flutter: Code2,
+  "RTK Query": Workflow,
+  "React Native": Smartphone,
+  Flutter: Smartphone,
   "Node.js": Server,
   "Express.js": Braces,
   NestJS: Boxes,
+  "REST API": Send,
+  "JWT Authentication": Braces,
   MongoDB: Database,
   PostgreSQL: Database,
+  MySQL: Database,
   "SQL Server": Database,
   Git: GitBranch,
   GitHub: Github,
@@ -88,9 +129,19 @@ const TECH_ICONS = {
   Postman: Send,
   Insomnia: Sparkles,
   Figma: PenTool,
+  "Draw.io": PenTool,
+  Lucidchart: PenTool,
+  "Visual Paradigm": PenTool,
   Vercel: Cloud,
   Render: Cloud,
   Firebase: Flame,
+  Supabase: Cloud,
+  "Manual Testing": Bug,
+  "API Testing": Send,
+  "Test Case Design": PenTool,
+  "Bug Reporting": Bug,
+  "Basic Debugging": Bug,
+  "UX Testing": Sparkles,
 };
 
 const overlayVariants = {
@@ -190,12 +241,12 @@ const TechStackModal = ({ isOpen, onClose, groups = [] }) => {
 
                   <div>
                     <h3 className="text-2xl font-semibold text-white sm:text-3xl">
-                      Technologies &amp; Tools
+                      Tech Stack &amp; Delivery Toolkit
                     </h3>
                     <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-base">
-                      A curated view of the technologies I use most often across
-                      frontend, backend, databases, and product delivery
-                      workflows.
+                      A structured overview of the technologies, services, and
+                      workflow practices I use across frontend, backend,
+                      databases, delivery, and QA.
                     </p>
                   </div>
                 </div>
@@ -250,7 +301,8 @@ const TechStackModal = ({ isOpen, onClose, groups = [] }) => {
                             {group.title}
                           </h4>
                           <p className="text-sm text-slate-400">
-                            {group.items.length} core technologies
+                            {group.description ||
+                              `${group.items.length} core technologies`}
                           </p>
                         </div>
                       </div>
