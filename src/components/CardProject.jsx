@@ -3,19 +3,6 @@ import { Link } from "react-router-dom";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { toSlug } from "../utils/slug";
 
-const TECH_BADGE_PRIORITY = {
-  "Next.js": 1,
-  Leaflet: 1,
-  "Chart.js": 1,
-  "Framer Motion": 1,
-  "React Router": 2,
-  Redux: 2,
-  "Material UI": 3,
-  "Ant Design": 3,
-  "Tailwind CSS": 4,
-  Axios: 4,
-};
-
 const CardProject = ({
   Img,
   Title,
@@ -25,12 +12,7 @@ const CardProject = ({
   TechStack = [],
 }) => {
   const [hasImageError, setHasImageError] = useState(false);
-  const previewTechStack = [...TechStack]
-    .sort(
-      (left, right) =>
-        (TECH_BADGE_PRIORITY[left] ?? 5) - (TECH_BADGE_PRIORITY[right] ?? 5),
-    )
-    .slice(0, 4);
+  const previewTechStack = TechStack.slice(0, 4);
 
   useEffect(() => {
     setHasImageError(false);

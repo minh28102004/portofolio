@@ -21,17 +21,12 @@ const techStackGroups = [
       "TypeScript",
       "React",
       "Next.js",
-      "React Router",
       "Tailwind CSS",
       "Bootstrap",
       "Material UI",
       "Ant Design",
       "shadcn/ui",
       "Redux",
-      "Framer Motion",
-      "GSAP",
-      "Leaflet",
-      "Chart.js",
       "React Native",
       "Flutter",
     ],
@@ -91,7 +86,7 @@ export const profile = {
     value: "Fullstack",
     label: "Core Focus",
     description:
-      "Fullstack web development, system workflows, and product implementation",
+      "Frontend, backend, and product delivery across fullstack web applications",
   },
 };
 

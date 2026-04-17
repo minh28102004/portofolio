@@ -26,11 +26,11 @@ const contactHighlights = [
   {
     icon: BriefcaseBusiness,
     label: "Open To",
-    value: "Fullstack roles and freelance projects",
+    value: "Fullstack roles, freelance work, and product collaborations",
   },
   {
     icon: Clock3,
-    label: "Response Style",
+    label: "Response Time",
     value: "Usually within 24 hours",
   },
 ];
@@ -151,7 +151,7 @@ const ContactPage = () => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            Contact Me
+            Get In Touch
           </span>
         </h2>
         <p
@@ -159,7 +159,8 @@ const ContactPage = () => {
           data-aos-duration="1100"
           className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2"
         >
-          Have a project, role, or collaboration in mind? Send me a message.
+          Have a project, role, or collaboration in mind? Let&apos;s talk
+          about how we can work together.
         </p>
       </div>
 
@@ -172,11 +173,11 @@ const ContactPage = () => {
             <div className="flex justify-between items-start mb-8">
               <div>
                 <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-                  Contact
+                  Start a Conversation
                 </h2>
                 <p className="text-gray-400">
-                  If you would like to work together, send me an email or leave
-                  a message.
+                  Share a quick brief about your project, role, or idea. Email
+                  or the form below both work great.
                 </p>
               </div>
               <Share2 className="w-10 h-10 text-[#6366f1] opacity-50" />
@@ -255,15 +256,15 @@ const ContactPage = () => {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.32em] text-white/35">
-                    Let&apos;s Connect
+                    Contact Details
                   </p>
                   <h3 className="mt-3 text-2xl font-semibold text-white">
-                    Portfolio contact, without admin backend
+                    Let&apos;s build something useful together
                   </h3>
                   <p className="mt-3 max-w-xl text-sm leading-7 text-slate-300">
-                    This portfolio now runs as a clean static experience. If
-                    you want to work together, the fastest path is email or
-                    social contact.
+                    Whether you&apos;re hiring for a fullstack role, looking for
+                    freelance support, or discussing a new product idea, the
+                    fastest way to reach me is by email or the contact form.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-violet-300">
@@ -303,8 +304,8 @@ const ContactPage = () => {
 
               <div className="mt-8 rounded-2xl border border-dashed border-violet-400/25 bg-violet-500/5 p-5">
                 <p className="text-sm leading-7 text-slate-300">
-                  Social links are still available below, so you can keep the
-                  portfolio simple while staying easy to reach.
+                  Prefer a quicker touchpoint? You can also use the social links
+                  below to connect, explore my work, or send a direct message.
                 </p>
                 <div className="mt-5 flex justify-center border-t border-white/10 pt-5">
                   <SocialLinks />
