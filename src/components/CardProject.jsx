@@ -70,19 +70,24 @@ const CardProject = ({
             </p>
 
             {previewTechStack.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {previewTechStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-blue-400/20 bg-blue-500/10 px-2.5 py-1 text-[11px] font-medium text-blue-200/90"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="space-y-2">
+                <div className="flex flex-wrap gap-2">
+                  {previewTechStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-blue-400/20 bg-blue-500/10 px-2.5 py-1 text-[11px] font-medium text-blue-200/90"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
                 {TechStack.length > previewTechStack.length && (
-                  <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">
-                    +{TechStack.length - previewTechStack.length}
-                  </span>
+                  <div className="flex">
+                    <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">
+                      +{TechStack.length - previewTechStack.length}
+                    </span>
+                  </div>
                 )}
               </div>
             )}
