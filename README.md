@@ -12,72 +12,25 @@ I focus on developing modern, responsive, and scalable applications using **Reac
 
 ## About Me
 
-- Fresher Fullstack Developer with a Software Engineering background from FPT University.
-- Hands-on experience in frontend development, responsive UI, dashboard systems, and API integration.
-- Experienced in building real-world projects such as booking platforms, management systems, and admin dashboards.
-- Interested in fullstack development, system design, web performance, and scalable applications.
-- Able to collaborate with cross-functional teams, work with backend developers, and deliver production-ready features.
-- Based in Ho Chi Minh City, Vietnam.
+* Fresher Fullstack Developer with a Software Engineering background from FPT University.
+* Hands-on experience in frontend development, responsive UI, dashboard systems, and API integration.
+* Experienced in building real-world projects such as booking platforms, management systems, and admin dashboards.
+* Interested in fullstack development, system design, web performance, and scalable applications.
+* Able to collaborate with cross-functional teams, work with backend developers, and deliver production-ready features.
+* Based in Ho Chi Minh City, Vietnam.
 
 ---
 
 ## Technical Skills
 
-### Frontend
-
-- React.js
-- Next.js
-- React Native
-- TypeScript
-- JavaScript
-- HTML
-- CSS
-- Tailwind CSS
-
-### Backend
-
-- Node.js
-- Express.js
-- NestJS
-- RESTful APIs
-- JWT Authentication
-- OAuth 2.0
-- WebSocket
-- Basic .NET / C#
-
-### Database
-
-- MongoDB
-- SQL Server
-- PostgreSQL
-- MySQL
-
-### Cloud & Deployment
-
-- Vercel
-- Render
-- Supabase
-- Firebase
-- Docker
-- Azure
-- Google Cloud Platform
-
-### Tools
-
-- Git & GitHub
-- Postman
-- Insomnia
-- Swagger / OpenAPI
-- Figma
-- ESLint
-
-### Methodologies
-
-- Agile / Scrum
-- Git Workflow
-- API Integration
-- Responsive Design
-- AI-assisted Development
+| Category               | Technologies                                                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Frontend**           | React.js, Next.js, React Native, TypeScript, JavaScript, HTML, CSS, Tailwind CSS                     |
+| **Backend**            | Node.js, Express.js, NestJS, RESTful APIs, JWT Authentication, OAuth 2.0, WebSocket, Basic .NET / C# |
+| **Database**           | MongoDB, SQL Server, PostgreSQL, MySQL                                                               |
+| **Cloud & Deployment** | Vercel, Render, Supabase, Firebase, Docker, Azure, Google Cloud Platform                             |
+| **Tools**              | Git, GitHub, Postman, Insomnia, Swagger / OpenAPI, Figma, ESLint                                     |
+| **Methodologies**      | Agile / Scrum, Git Workflow, API Integration, Responsive Design, AI-assisted Development             |
 
 ---
 
@@ -87,13 +40,13 @@ I focus on developing modern, responsive, and scalable applications using **Reac
 
 **Dec 2024 - Apr 2025**
 
-- Led front-end development in a 5-member team and completed 43 assigned tasks with consistent on-time delivery.
-- Developed responsive user interfaces for more than 8 management modules, including product, order, task, and production management systems.
-- Built dashboards and reporting interfaces with charts and statistics to support business monitoring.
-- Integrated RESTful APIs for multiple modules and handled frontend-backend data flow.
-- Collaborated with backend developers to resolve integration issues and ensure data consistency across modules.
-- Improved UI performance and responsiveness across different devices and screen sizes.
-- Performed debugging and API testing to improve feature stability before release.
+* Led front-end development in a 5-member team and completed 43 assigned tasks with consistent on-time delivery.
+* Developed responsive user interfaces for more than 8 management modules, including product, order, task, and production management systems.
+* Built dashboards and reporting interfaces with charts and statistics to support business monitoring.
+* Integrated RESTful APIs for multiple modules and handled frontend-backend data flow.
+* Collaborated with backend developers to resolve integration issues and ensure data consistency across modules.
+* Improved UI performance and responsiveness across different devices and screen sizes.
+* Performed debugging and API testing to improve feature stability before release.
 
 ---
 
@@ -101,74 +54,52 @@ I focus on developing modern, responsive, and scalable applications using **Reac
 
 ### Get Sport Booking System
 
-**Role:** Fullstack Developer  
+**Role:** Fullstack Developer
 **Demo:** [get-sport.vercel.app](https://get-sport.vercel.app)
 
 A sports venue booking platform that allows users to search, book, and pay online.
 
 **Key Features:**
 
-- Sports court search and booking flow.
-- Schedule selection and reservation management.
-- Online payment integration.
-- RESTful API integration.
-- Role-based access control for different user types.
-- Optimized data handling and improved system performance.
+* Built a full-stack booking platform for sports venue reservations.
+* Designed booking flow and schedule selection to improve user experience.
+* Developed and integrated RESTful APIs for booking, user management, and payment-related features.
+* Implemented role-based access control to manage permissions for different user types.
+* Optimized data handling and improved overall system performance.
 
 ---
 
 ### ECONET Waste Management System
 
-**Role:** Fullstack Developer  
+**Role:** Fullstack Developer
 **Demo:** [wdp301-fe.vercel.app](https://wdp301-fe.vercel.app)
 
 A waste management platform designed to support real-time tracking, monitoring, and operational management.
 
 **Key Features:**
 
-- Responsive web and mobile interfaces.
-- Dashboard and tracking modules.
-- API and notification integration.
-- Real-time monitoring support.
-- Reliable data synchronization between frontend and backend.
-- Optimized dashboard performance and reduced loading latency.
+* Developed responsive web and mobile interfaces for better accessibility across devices.
+* Built tracking and dashboard modules to support real-time monitoring.
+* Integrated APIs and notifications to enhance operational responsiveness.
+* Ensured reliable data synchronization between frontend and backend systems.
+* Optimized dashboard performance and reduced data loading latency.
 
 ---
 
 ### Rex Centre Management System
 
-**Role:** Frontend Developer / Business Analyst  
+**Role:** Frontend Developer / Business Analyst
 **Demo:** [rexenglish.com](https://rexenglish.com)
 
 An education management system that supports course registration, student management, and internal operation workflows.
 
 **Key Features:**
 
-- Requirement analysis and workflow translation.
-- Responsive dashboards for students, teachers, classes, courses, rooms, fees, and reports.
-- Reusable UI components.
-- Next.js App Router structure.
-- API integration and optimized data flow.
-- Improved course registration usability through collaboration with team members.
-
----
-
-## Portfolio Website Features
-
-### Public Site
-
-- View personal profile and introduction.
-- Browse technical skills.
-- View featured projects.
-- View certificates.
-- Send comments or feedback.
-
-### Admin Dashboard
-
-- Login authentication with Supabase.
-- Manage projects with CRUD features.
-- Manage certificates.
-- Manage comments, including pin and delete actions.
+* Analyzed requirements and translated education workflows into functional web and Zalo Mini App modules.
+* Built responsive dashboard pages for students, teachers, classes, courses, rooms, fees, and reports.
+* Developed reusable UI components and routing structure using Next.js App Router.
+* Collaborated with team members to refine user flows and improve course registration usability.
+* Integrated RESTful APIs and optimized data flow to improve system responsiveness.
 
 ---
 
@@ -176,18 +107,18 @@ An education management system that supports course registration, student manage
 
 ### Bachelor of Software Engineering
 
-**FPT University**  
+**FPT University**
 **Oct 2022 - Nov 2026**
 
 Relevant coursework:
 
-- Data Structures and Algorithms
-- Database Systems
-- Web Development
-- Software Engineering
-- Object-Oriented Programming
-- UI/UX Principles
-- API Integration
+* Data Structures and Algorithms
+* Database Systems
+* Web Development
+* Software Engineering
+* Object-Oriented Programming
+* UI/UX Principles
+* API Integration
 
 ---
 
@@ -198,3 +129,37 @@ Relevant coursework:
 ```bash
 git clone https://github.com/YOUR_USERNAME/portfolio.git
 cd portfolio
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+```
+
+### 4. Open in browser
+
+```bash
+http://localhost:3000
+```
+
+---
+
+## Contact
+
+* Portfolio: [portfolio-minzsun.vercel.app](https://portfolio-minzsun.vercel.app/)
+* Email: [luongxuanminh102@gmail.com](luongxuanminh102@gmail.com)
+* GitHub: https://github.com/minh28102004
+* LinkedIn: https://www.linkedin.com/in/xuân-minh/
+
+---
+
+## Career Objective
+
+I am looking for opportunities as a **Frontend Developer** or **Fullstack Developer**, where I can contribute to real-world products, improve user experience, and continue growing as a professional software engineer.
