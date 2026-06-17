@@ -358,7 +358,7 @@ const AboutPage = () => {
         </a>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%,
           100% {

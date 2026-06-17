@@ -15,6 +15,15 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import axios from "axios";
 import { profile } from "../data/profile";
+import {
+  EMAIL_VALIDATION_ERROR_MESSAGES,
+  validateSenderEmailSyntax,
+} from "../utils/emailValidation";
+
+const CONTACT_API_ENDPOINT = "/api/contact";
+const EMAIL_VALIDATION_MESSAGES = Object.values(
+  EMAIL_VALIDATION_ERROR_MESSAGES,
+);
 
 const contactHighlights = [
   {
@@ -39,7 +48,11 @@ const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
+  });
+  const [formErrors, setFormErrors] = useState({
+    email: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -51,14 +64,72 @@ const ContactPage = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+
+    if (name === "email" && formErrors.email) {
+      const emailResult = validateSenderEmailSyntax(value);
+
+      setFormErrors((prev) => ({
+        ...prev,
+        email: emailResult.isValid ? "" : emailResult.message,
+      }));
+    }
+  };
+
+  const handleEmailBlur = () => {
+    const emailResult = validateSenderEmailSyntax(formData.email);
+
+    setFormErrors((prev) => ({
+      ...prev,
+      email: emailResult.isValid ? "" : emailResult.message,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const trimmedData = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      subject: formData.subject.trim(),
+      message: formData.message.trim(),
+    };
+    const emailResult = validateSenderEmailSyntax(trimmedData.email);
+
+    if (!emailResult.isValid) {
+      setFormErrors((prev) => ({
+        ...prev,
+        email: emailResult.message,
+      }));
+
+      Swal.fire({
+        title: "Email validation failed",
+        text: emailResult.message,
+        icon: "error",
+        confirmButtonColor: "#6366f1",
+      });
+      return;
+    }
+
+    setFormErrors((prev) => ({
+      ...prev,
+      email: "",
+    }));
+
+    if (!trimmedData.name || !trimmedData.message) {
+      Swal.fire({
+        title: "Missing information",
+        text: "Please fill in your name and message.",
+        icon: "warning",
+        confirmButtonColor: "#6366f1",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     Swal.fire({
@@ -71,62 +142,92 @@ const ContactPage = () => {
     });
 
     try {
-      const formSubmitUrl = `https://formsubmit.co/${profile.email}`;
+      const payload = {
+        name: trimmedData.name,
+        email: trimmedData.email,
+        subject: trimmedData.subject || "Portfolio contact message",
+        message: trimmedData.message,
+        _honey: "",
+      };
 
-      const submitData = new FormData();
-      submitData.append("name", formData.name);
-      submitData.append("email", formData.email);
-      submitData.append("message", formData.message);
-      submitData.append(
-        "_subject",
-        `New portfolio message for ${profile.fullName}`,
-      );
-      submitData.append("_captcha", "false");
-      submitData.append("_template", "table");
-
-      await axios.post(formSubmitUrl, submitData, {
+      const response = await axios.post(CONTACT_API_ENDPOINT, payload, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
       });
 
+      if (response.data?.success === false) {
+        throw new Error(
+          response.data?.message || "The contact service rejected the message.",
+        );
+      }
+
       Swal.fire({
-        title: "Success!",
-        text: "Your message has been sent.",
+        title: "Message sent!",
+        text: "Thanks for reaching out. I will get back to you soon.",
         icon: "success",
         confirmButtonColor: "#6366f1",
-        timer: 2000,
+        timer: 2200,
         timerProgressBar: true,
       });
 
       setFormData({
         name: "",
         email: "",
+        subject: "",
         message: "",
       });
     } catch (error) {
-      if (error.request && error.request.status === 0) {
-        Swal.fire({
-          title: "Success!",
-          text: "Your message has been sent.",
-          icon: "success",
-          confirmButtonColor: "#6366f1",
-          timer: 2000,
-          timerProgressBar: true,
-        });
+      const serverMessage =
+        error.response?.data?.error?.message ||
+        error.response?.data?.message ||
+        error.message;
+      const isEmailValidationError =
+        error.response?.data?.error?.field === "email" ||
+        EMAIL_VALIDATION_MESSAGES.includes(serverMessage);
 
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      } else {
+      if (isEmailValidationError) {
+        setFormErrors((prev) => ({
+          ...prev,
+          email: serverMessage,
+        }));
+
         Swal.fire({
-          title: "Something went wrong",
-          text: "An error occurred. Please try again later.",
+          title: "Email validation failed",
+          text: serverMessage,
           icon: "error",
           confirmButtonColor: "#6366f1",
         });
+        return;
+      }
+
+      const fallbackSubject =
+        trimmedData.subject || `New portfolio message for ${profile.fullName}`;
+      const fallbackBody = [
+        `Name: ${trimmedData.name}`,
+        `Email: ${trimmedData.email}`,
+        "",
+        trimmedData.message,
+      ].join("\n");
+      const fallbackMailUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
+        fallbackSubject,
+      )}&body=${encodeURIComponent(fallbackBody)}`;
+
+      const result = await Swal.fire({
+        title: "Could not send automatically",
+        text:
+          serverMessage ||
+          "Please try again, or open your email app to send the message directly.",
+        icon: "error",
+        showCancelButton: true,
+        confirmButtonText: "Open email app",
+        cancelButtonText: "Close",
+        confirmButtonColor: "#6366f1",
+      });
+
+      if (result.isConfirmed) {
+        window.location.href = fallbackMailUrl;
       }
     } finally {
       setIsSubmitting(false);
@@ -168,7 +269,7 @@ const ContactPage = () => {
         className="h-auto py-10 flex items-center justify-center 2xl:pr-[3.1%] lg:pr-[3.8%] md:px-0"
         id="Contact"
       >
-        <div className="container px-[1%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[35%_65%] gap-12">
+        <div className="container px-[1%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[40%_60%] gap-12">
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#6366f1]/10">
             <div className="flex justify-between items-start mb-8">
               <div>
@@ -183,7 +284,20 @@ const ContactPage = () => {
               <Share2 className="w-10 h-10 text-[#6366f1] opacity-50" />
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              action={CONTACT_API_ENDPOINT}
+              method="POST"
+              noValidate
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
+              <input
+                type="text"
+                name="_honey"
+                className="hidden"
+                tabIndex="-1"
+                autoComplete="off"
+              />
               <div
                 data-aos="fade-up"
                 data-aos-delay="100"
@@ -213,14 +327,43 @@ const ContactPage = () => {
                   placeholder="Your email"
                   value={formData.email}
                   onChange={handleChange}
+                  onBlur={handleEmailBlur}
                   disabled={isSubmitting}
+                  aria-invalid={Boolean(formErrors.email)}
+                  aria-describedby={
+                    formErrors.email ? "contact-email-error" : undefined
+                  }
                   className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300 hover:border-[#6366f1]/30 disabled:opacity-50"
                   required
                 />
+                {formErrors.email && (
+                  <p
+                    id="contact-email-error"
+                    className="mt-2 pl-1 text-sm text-rose-300"
+                  >
+                    {formErrors.email}
+                  </p>
+                )}
               </div>
               <div
                 data-aos="fade-up"
                 data-aos-delay="300"
+                className="relative group"
+              >
+                <BriefcaseBusiness className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  disabled={isSubmitting}
+                  className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300 hover:border-[#6366f1]/30 disabled:opacity-50"
+                />
+              </div>
+              <div
+                data-aos="fade-up"
+                data-aos-delay="400"
                 className="relative group"
               >
                 <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
@@ -236,7 +379,7 @@ const ContactPage = () => {
               </div>
               <button
                 data-aos="fade-up"
-                data-aos-delay="400"
+                data-aos-delay="500"
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[#6366f1]/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"

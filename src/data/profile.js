@@ -9,6 +9,9 @@ const primaryTechStack = [
   "NestJS",
   "MongoDB",
   "PostgreSQL",
+  "Docker",
+  "Azure",
+  "Google Cloud Platform",
 ];
 
 const techStackGroups = [
@@ -55,6 +58,9 @@ const techStackGroups = [
       "Vite",
       "Vercel",
       "Render",
+      "Docker",
+      "Azure",
+      "Google Cloud Platform",
     ],
   },
 ];
@@ -108,7 +114,15 @@ const homeTechStackGroups = [
     title: "Cloud & Services",
     description:
       "Deployment platforms and backend services that support product delivery.",
-    items: ["Firebase", "Supabase", "Vercel", "Render"],
+    items: [
+      "Firebase",
+      "Supabase",
+      "Vercel",
+      "Render",
+      "Docker",
+      "Azure",
+      "Google Cloud Platform",
+    ],
   },
   {
     title: "Tools & Workflow",
@@ -156,7 +170,7 @@ export const profile = {
   availabilityText: "Available for New Opportunities",
   shortBio:
     "Building end-to-end web products with a strong focus on scalable architecture, clean user experience, and reliable backend integration.",
-  aboutBio: `I am ${fullName}, a software developer who enjoys turning ideas into polished, scalable, and user-focused digital products from frontend experience to backend logic.`,
+  aboutBio: `A Software Developer who thrives on turning complex ideas into scalable, high-quality digital products, delivering seamless user experiences through strong frontend craftsmanship and robust backend engineering.`,
   quote:
     "Keep learning, keep improving, and always design with the user in mind.",
   email: "luongxuanminh102@gmail.com",
