@@ -67,7 +67,7 @@ const TechStackIcon = ({ iconCandidates = [], Language }) => {
         )}
       </div>
 
-      <span className="max-w-[11ch] break-words text-center text-[0.82rem] font-semibold leading-snug tracking-wide text-slate-300 transition-colors duration-300 group-hover:text-white md:text-sm">
+      <span className="w-full max-w-[22ch] text-center text-[0.82rem] font-semibold leading-snug tracking-wide text-slate-300 transition-colors duration-300 group-hover:text-white md:max-w-full md:text-sm">
         {Language}
       </span>
     </div>

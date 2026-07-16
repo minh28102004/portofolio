@@ -103,9 +103,11 @@ function a11yProps(index) {
 
 export default function FullWidthTabs() {
   const [value, setValue] = useState(0);
+  const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const isMobile = window.innerWidth < 768;
-  const initialItems = isMobile ? 4 : 6;
+  const initialProjects = isMobile ? 4 : 6;
+  const initialCertificates = isMobile ? 4 : 6;
 
   useEffect(() => {
     AOS.init({
@@ -118,15 +120,22 @@ export default function FullWidthTabs() {
   };
 
   const toggleShowMore = useCallback((type) => {
+    if (type === "projects") {
+      setShowAllProjects((prev) => !prev);
+      return;
+    }
+
     if (type === "certificates") {
       setShowAllCertificates((prev) => !prev);
     }
   }, []);
 
-  const displayedProjects = featuredProjects;
+  const displayedProjects = showAllProjects
+    ? featuredProjects
+    : featuredProjects.slice(0, initialProjects);
   const displayedCertificates = showAllCertificates
     ? featuredCertificates
-    : featuredCertificates.slice(0, initialItems);
+    : featuredCertificates.slice(0, initialCertificates);
 
   return (
     <div
@@ -286,6 +295,14 @@ export default function FullWidthTabs() {
                 ))}
               </div>
             </div>
+            {featuredProjects.length > initialProjects && (
+              <div className="mt-6 w-full flex justify-start">
+                <ToggleButton
+                  onClick={() => toggleShowMore("projects")}
+                  isShowingMore={showAllProjects}
+                />
+              </div>
+            )}
           </TabPanel>
 
           <TabPanel value={value} index={1}>
@@ -327,7 +344,7 @@ export default function FullWidthTabs() {
                 </div>
               </div>
             )}
-            {featuredCertificates.length > initialItems && (
+            {featuredCertificates.length > initialCertificates && (
               <div className="mt-6 w-full flex justify-start">
                 <ToggleButton
                   onClick={() => toggleShowMore("certificates")}

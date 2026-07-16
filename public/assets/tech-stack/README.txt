@@ -1,11 +1,13 @@
 Tech stack icons for the Portfolio tab live here.
 
 You only need to drop an icon with the same base name and one of these extensions:
-- `.svg`
 - `.png`
+- `.svg`
 - `.webp`
 - `.jpg`
 - `.jpeg`
+
+The app checks `.png` first, then falls back to `.svg` and the other formats.
 
 The app will try files in that order automatically.
 
@@ -48,6 +50,9 @@ Tools & Platforms
 - `vite`
 - `vercel`
 - `render`
+- `docker`
+- `azure`
+- `google-cloud-platform`
 
 Example:
 - `assets/tech-stack/typescript.svg`

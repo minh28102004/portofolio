@@ -61,7 +61,10 @@ const CardProject = ({
           </div>
 
           <div className="mt-4 space-y-3">
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent">
+            <h3
+              title={Title}
+              className="line-clamp-1 text-xl font-semibold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent"
+            >
               {Title}
             </h3>
 

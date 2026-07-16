@@ -1,6 +1,10 @@
 Add your project cover images in this folder with these exact file names:
 
 - getsport.jpg
+- q-broker.png
+- another-house.png
+- automation-land.png
+- figure-lab.png
 - rex.jpg
 - blood-donation-platform.jpg
 - orange-shop.jpg

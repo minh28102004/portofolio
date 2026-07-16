@@ -6,6 +6,7 @@ const AVAILABLE_TECH_STACK_ASSETS = new Set([
   "axios",
   "bootstrap",
   "css",
+  "docker",
   "express",
   "figma",
   "firebase",
@@ -30,6 +31,8 @@ const AVAILABLE_TECH_STACK_ASSETS = new Set([
   "sql-server",
   "tailwind-css",
   "typescript",
+  "azure",
+  "google-cloud-platform",
   "vercel",
   "vite",
 ]);
@@ -84,7 +87,7 @@ const TECH_STACK_FILE_NAMES = {
   "UX Testing": "ux-testing",
 };
 
-const ASSET_EXTENSIONS = ["svg", "png", "webp", "jpg", "jpeg"];
+const ASSET_EXTENSIONS = ["png", "svg", "webp", "jpg", "jpeg"];
 
 const buildIconCandidates = (fileName) =>
   ASSET_EXTENSIONS.map(

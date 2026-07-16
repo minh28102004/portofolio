@@ -2,6 +2,102 @@ const getProjectImage = (fileName) => `/project-images/${fileName}`;
 
 export const featuredProjects = [
   {
+    id: "project-q-broker",
+    Title: "Q-Broker Certification Exam App",
+    Description:
+      "A mobile exam preparation app for real-estate broker certification with course topics, lessons, practice questions, mock tests, and progress tracking published on Google Play.",
+    Img: getProjectImage("q-broker.png"),
+    Link: "https://play.google.com/store/apps/details?id=com.automation.ccmg.client&hl=vi",
+    Github: "Private",
+    TechStack: [
+      "Flutter",
+      "Dart",
+      "REST API",
+      "Firebase",
+      "Mobile UI",
+    ],
+    Features: [
+      "Course and topic browsing for professional certification learning",
+      "Lesson, question, mock test, and progress-tracking flows",
+      "RESTful API integration between the mobile app and backend services",
+      "Published Android app experience with mobile-first usability and testing",
+    ],
+  },
+  {
+    id: "project-another-house",
+    Title: "Another House Booking Website",
+    Description:
+      "A production room booking website for Another House with room detail pages, pricing, amenities, media galleries, video sections, and direct booking/contact actions.",
+    Img: getProjectImage("another-house.png"),
+    Link: "https://anotherhouse.vn/",
+    Github: "https://github.com/minh28102004/frontend-house",
+    TechStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Ant Design",
+      "React Query",
+      "Zustand",
+      "Axios",
+    ],
+    Features: [
+      "Responsive room detail pages with availability, pricing, amenities, and reviews",
+      "Reusable sections for navigation, galleries, video previews, and contact buttons",
+      "API-connected booking-oriented flows with stateful frontend interactions",
+      "Desktop, tablet, and mobile layouts optimized for a real hospitality website",
+    ],
+  },
+  {
+    id: "project-automation-land",
+    Title: "Automation Land Corporate Website",
+    Description:
+      "A corporate digital transformation website for Automation Land with multilingual pages, service showcases, ecosystem navigation, and conversion-focused contact flows.",
+    Img: getProjectImage("automation-land.png"),
+    Link: "https://automationland.vn/en/",
+    Github: "Private",
+    TechStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "SEO",
+      "i18n",
+    ],
+    Features: [
+      "Corporate landing and service pages for real-estate enterprise automation",
+      "Multilingual navigation and conversion-focused CTA structure",
+      "Responsive UI sections for ecosystem, services, contact, and content discovery",
+      "Motion-led brand presentation tuned for a professional technology company",
+    ],
+  },
+  {
+    id: "project-figure-lab",
+    Title: "Figure Lab",
+    Description:
+      "A personalized gift and design-studio platform with template selection, custom content steps, cart flow, admin modules, and a fullstack monorepo architecture.",
+    Img: getProjectImage("figure-lab.png"),
+    Link: "https://figure-lab.vercel.app/",
+    Github: "https://github.com/minh28102004/LegoShop",
+    TechStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "NestJS",
+      "PostgreSQL",
+      "Supabase",
+      "Docker",
+    ],
+    Features: [
+      "Interactive design studio with template selection, content steps, and size options",
+      "Customer-facing storefront with cart and personalized product ordering flows",
+      "Admin and backend modules built in a TypeScript monorepo",
+      "NestJS, PostgreSQL, Supabase, and Docker-backed fullstack architecture",
+    ],
+  },
+  {
     id: "project-getsport",
     Title: "GetSport",
     Description:
@@ -28,7 +124,7 @@ export const featuredProjects = [
   },
   {
     id: "project-rex",
-    Title: "Rex",
+    Title: "Rex Centre Management System",
     Description:
       "A multilingual education center website for Rex that blends program discovery, FAQs, blogs, contact flows, and enrollment-oriented pages into a polished brand experience.",
     Img: getProjectImage("rex.jpg"),
@@ -103,7 +199,7 @@ export const featuredProjects = [
     Description:
       "A content-first brand website built around storytelling sections, promotional content, and motion-led presentation across modern landing-page layouts.",
     Img: getProjectImage("mln.jpg"),
-    Link: "https://mln-delta.vercel.app/",
+    Link: "https://mlnstory.vercel.app/",
     Github: "https://github.com/HarryTran-lead/MLN",
     TechStack: [
       "React",
