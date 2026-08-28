@@ -1,4 +1,4 @@
-const fullName = "L\u01b0\u01a1ng Nguy\u1ec5n Xu\u00e2n Minh";
+const fullName = "Xu\u00e2n Minh";
 
 const primaryTechStack = [
   "JavaScript",
@@ -162,7 +162,7 @@ const techStack = Array.from(
 
 export const profile = {
   fullName,
-  welcomeDisplayName: "Xu\u00e2n Minh Dev",
+  welcomeDisplayName: "Xu\u00e2n Minh",
   brandName: "Portfolio Website",
   jobTitle: "Software Developer",
   heroTitle: ["Software", "Developer"],
@@ -179,7 +179,7 @@ export const profile = {
   techStackGroups,
   homeTechStackGroups,
   techStack,
-  avatarInitials: "LXM",
+  avatarInitials: "XM",
   focusArea: {
     value: "Fullstack",
     label: "Core Focus",

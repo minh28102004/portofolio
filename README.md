@@ -1,12 +1,12 @@
-# Luong Nguyen Xuan Minh - Portfolio
+# Xuan Minh - Portfolio
 
-Hi, I'm **Luong Nguyen Xuan Minh**, a **Fresher Fullstack Developer** with a strong foundation in Software Engineering and hands-on experience in building real-world web applications.
+Hi, I'm **Xuan Minh**, a **Fresher Fullstack Developer** with a strong foundation in Software Engineering and hands-on experience in building real-world web applications.
 
 I focus on developing modern, responsive, and scalable applications using **React.js, Next.js, Node.js, and RESTful APIs**. I have experience working on admin dashboards, booking systems, management platforms, and API-integrated applications with an emphasis on clean UI, performance, usability, and maintainable code.
 
 ## Live Demo
 
-[Visit My Portfolio](https://portfolio-minzsun.vercel.app/)
+[Visit My Portfolio](https://minzsun.vercel.app/)
 
 ---
 
@@ -153,7 +153,7 @@ http://localhost:3000
 
 ## Contact
 
-* Portfolio: [portfolio-minzsun.vercel.app](https://portfolio-minzsun.vercel.app/)
+* Portfolio: [minzsun.vercel.app](https://minzsun.vercel.app/)
 * Email: [luongxuanminh102@gmail.com](luongxuanminh102@gmail.com)
 * GitHub: https://github.com/minh28102004
 * LinkedIn: https://www.linkedin.com/in/xuân-minh/
